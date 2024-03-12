@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import skaba.hospital.api.controllers.helpers.ControllersHelper;
 import skaba.hospital.api.dto.AckDto;
-import skaba.hospital.api.dto.PatientDTO;
+import skaba.hospital.api.dto.PatientDto;
 import skaba.hospital.api.exceptions.BadRequestException;
 import skaba.hospital.api.factories.PatientDtoFactory;
 import skaba.hospital.store.entities.PatientEntity;
@@ -35,7 +35,7 @@ public class PatientController {
 
 
     @PutMapping(ADD_PATIENT)
-    public PatientDTO addPatient(
+    public PatientDto addPatient(
             @RequestParam String firstName,
             @RequestParam String secondName,
             @RequestParam String lastName,
@@ -68,7 +68,7 @@ public class PatientController {
     }
 
     @GetMapping(GET_PATIENT)
-    public PatientDTO getPatient(
+    public PatientDto getPatient(
             @PathVariable("patient_id") Long id
     ){
 
@@ -88,7 +88,7 @@ public class PatientController {
     }
 
     @GetMapping(GET_PATIENTS)
-    public List<PatientDTO> getAllPatients(){
+    public List<PatientDto> getAllPatients(){
         return patientRepository
                 .streamAllBy()
                 .map(patientDtoFactory::makePatientDto)

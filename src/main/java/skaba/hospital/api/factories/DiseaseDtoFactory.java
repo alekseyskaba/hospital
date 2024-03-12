@@ -1,15 +1,15 @@
 package skaba.hospital.api.factories;
 
 import org.springframework.stereotype.Component;
-import skaba.hospital.api.dto.DiseaseDTO;
+import skaba.hospital.api.dto.DiseaseDto;
 import skaba.hospital.store.entities.DiseaseEntity;
 
 @Component
 public class DiseaseDtoFactory {
 
-    public DiseaseDTO makeDiseaseDto(DiseaseEntity disease){
+    public DiseaseDto makeDiseaseDto(DiseaseEntity disease){
 
-        return DiseaseDTO.builder()
+        return DiseaseDto.builder()
                 .diseaseId(disease.getDiseaseId())
                 .endAt(disease.getEndAt())
                 .startAt(disease.getStartAt())

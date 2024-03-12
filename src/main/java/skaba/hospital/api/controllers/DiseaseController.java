@@ -6,7 +6,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import skaba.hospital.api.controllers.helpers.ControllersHelper;
-import skaba.hospital.api.dto.DiseaseDTO;
+import skaba.hospital.api.dto.DiseaseDto;
 import skaba.hospital.api.factories.DiseaseDtoFactory;
 import skaba.hospital.store.entities.DiseaseEntity;
 import skaba.hospital.store.entities.PatientEntity;
@@ -35,7 +35,7 @@ public class DiseaseController {
     public static final String GET_ALL_DISEASES = "/api/diseases";
 
     @GetMapping(GET_DISEASES)
-    public List<DiseaseDTO> getDiseases(@PathVariable("patient_id") Long id){
+    public List<DiseaseDto> getDiseases(@PathVariable("patient_id") Long id){
 
         PatientEntity patient = controllersHelper.getPatientByIdOrThrowException(id);
 
@@ -47,14 +47,14 @@ public class DiseaseController {
     }
 
     @GetMapping(GET_ALL_DISEASES)
-    public List<DiseaseDTO> getAllDiseases(){
+    public List<DiseaseDto> getAllDiseases(){
         return diseaseRepository.streamAllBy()
                 .map(diseaseDtoFactory::makeDiseaseDto)
                 .collect(Collectors.toList());
     }
 
     @PostMapping(ADD_DISEASE)
-    public DiseaseDTO addDisease(
+    public DiseaseDto addDisease(
             @PathVariable("patient_id") Long patientId,
             @RequestParam String name,
             @RequestParam String description
@@ -83,7 +83,7 @@ public class DiseaseController {
     }
 
     @DeleteMapping(DELETE_DISEASE)
-    public DiseaseDTO deleteDisease(
+    public DiseaseDto deleteDisease(
             @PathVariable("disease_id") Long id
     ){
 

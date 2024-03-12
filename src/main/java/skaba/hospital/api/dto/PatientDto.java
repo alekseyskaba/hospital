@@ -10,7 +10,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientDTO {
+public class PatientDto {
 
     @NonNull
     Long patientId;
@@ -31,6 +31,6 @@ public class PatientDTO {
     String birthDate;
 
     @NonNull
-    List<DiseaseDTO> diseases;
+    List<DiseaseDto> diseases;
 
 }

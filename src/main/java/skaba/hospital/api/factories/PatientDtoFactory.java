@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
-import skaba.hospital.api.dto.PatientDTO;
+import skaba.hospital.api.dto.PatientDto;
 import skaba.hospital.store.entities.PatientEntity;
 
 import java.util.stream.Collectors;
@@ -16,9 +16,9 @@ public class PatientDtoFactory {
 
     DiseaseDtoFactory diseaseDtoFactory;
 
-    public PatientDTO makePatientDto(PatientEntity entity){
+    public PatientDto makePatientDto(PatientEntity entity){
 
-        return PatientDTO.builder()
+        return PatientDto.builder()
                 .patientId(entity.getPatientId())
                 .phoneNumber(entity.getPhoneNumber())
                 .birthDate(entity.getBirthDate())

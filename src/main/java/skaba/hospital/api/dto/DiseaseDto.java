@@ -3,7 +3,6 @@ package skaba.hospital.api.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import skaba.hospital.store.entities.PatientEntity;
 
 import java.time.Instant;
 
@@ -12,7 +11,7 @@ import java.time.Instant;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiseaseDTO {
+public class DiseaseDto {
 
     @NonNull
     Long diseaseId;
